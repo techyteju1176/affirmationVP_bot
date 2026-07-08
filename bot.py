@@ -16,7 +16,7 @@ AFFIRMATION = (
 )
 
 # Replace with your Telegram chat ID
-CHAT_ID = YOUR_CHAT_ID
+CHAT_ID = 5614161691
 
 async def send_daily(context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(
