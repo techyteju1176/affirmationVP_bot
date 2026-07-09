@@ -39,12 +39,19 @@ def main():
 
     india = pytz.timezone("Asia/Kolkata")
 
-    app.job_queue.run_daily(
-        send_daily,
-        time=time(hour=9, minute=0, tzinfo=india),
-        name="daily_affirmation"
-    )
+# 9:00 AM
+app.job_queue.run_daily(
+    send_daily,
+    time=time(hour=9, minute=0, tzinfo=india),
+    name="daily_affirmation_9am"
+)
 
+# 11:11 AM
+app.job_queue.run_daily(
+    send_daily,
+    time=time(hour=11, minute=11, tzinfo=india),
+    name="daily_affirmation_1111"
+)
     print("Bot is running...")
     app.run_polling()
 
