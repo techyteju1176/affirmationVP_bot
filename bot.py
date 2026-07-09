@@ -8,7 +8,7 @@ from telegram.ext import (
 from datetime import time
 import pytz
 
-TOKEN = "YOUR_NEW_BOT_TOKEN"
+TOKEN = "8832677410:AAH0zSUpad3GzA6YkC60BrfByBvlSGjbBCE"
 
 AFFIRMATION = (
     "🌿 I'm grateful that my body keeps carrying me through each day, "
@@ -54,7 +54,7 @@ def main():
     # 11:11 AM
     app.job_queue.run_daily(
         send_daily,
-        time=time(hour=11, minute=20, tzinfo=india),
+        time=time(hour=11, minute=25, tzinfo=india),
         name="daily_affirmation_1111",
     )
 
