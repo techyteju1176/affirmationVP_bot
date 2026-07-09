@@ -8,7 +8,7 @@ from telegram.ext import (
 from datetime import time
 import pytz
 
-TOKEN = "YOUR_NEW_BOT_TOKEN"
+TOKEN = "8832677410:AAH0zSUpad3GzA6YkC60BrfByBvlSGjbBCE"
 
 AFFIRMATION = (
     "🌿 I'm grateful that my body keeps carrying me through each day, "
