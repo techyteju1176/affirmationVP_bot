@@ -15,7 +15,6 @@ AFFIRMATION = (
     "even when I'm not feeling my best."
 )
 
-# Your Telegram group chat ID
 CHAT_ID = -1004420749116
 
 
@@ -49,13 +48,15 @@ def main():
         send_daily,
         time=time(hour=9, minute=0, tzinfo=india),
         name="daily_affirmation_9am",
+        job_kwargs={"misfire_grace_time": 60},
     )
 
-    # 11:11 AM
+    # 11:31 AM (Test)
     app.job_queue.run_daily(
         send_daily,
-        time=time(hour=11, minute=25, tzinfo=india),
-        name="daily_affirmation_1111",
+        time=time(hour=11, minute=36, tzinfo=india),
+        name="daily_affirmation_1131",
+        job_kwargs={"misfire_grace_time": 60},
     )
 
     print("Bot is running...")
