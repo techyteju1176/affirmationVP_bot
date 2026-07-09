@@ -8,13 +8,14 @@ from telegram.ext import (
 from datetime import time
 import pytz
 
-TOKEN = "8832677410:AAH0zSUpad3GzA6YkC60BrfByBvlSGjbBCE"
+TOKEN = "YOUR_NEW_BOT_TOKEN"
 
 AFFIRMATION = (
     "🌿 I'm grateful that my body keeps carrying me through each day, "
     "even when I'm not feeling my best."
 )
 
+# Your Telegram group chat ID
 CHAT_ID = -1004420749116
 
 
@@ -48,15 +49,20 @@ def main():
         send_daily,
         time=time(hour=9, minute=0, tzinfo=india),
         name="daily_affirmation_9am",
-        job_kwargs={"misfire_grace_time": 60},
     )
 
-    # 11:31 AM (Test)
+    # 11:31 AM
     app.job_queue.run_daily(
         send_daily,
-        time=time(hour=11, minute=36, tzinfo=india),
+        time=time(hour=11, minute=31, tzinfo=india),
         name="daily_affirmation_1131",
-        job_kwargs={"misfire_grace_time": 60},
+    )
+
+    # 5:31 PM
+    app.job_queue.run_daily(
+        send_daily,
+        time=time(hour=17, minute=31, tzinfo=india),
+        name="daily_affirmation_1731",
     )
 
     print("Bot is running...")
