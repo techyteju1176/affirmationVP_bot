@@ -12,10 +12,9 @@ TOKEN = "8832677410:AAH0zSUpad3GzA6YkC60BrfByBvlSGjbBCE"
 
 AFFIRMATION = (
     "🌿 I'm grateful that my body keeps carrying me through each day, "
-    "even when I'm not feeling my best. "
+    "even when I'm not feeling my best."
 )
 
-# Replace with your Telegram chat ID
 CHAT_ID = -1004420749116
 
 async def send_daily(context: ContextTypes.DEFAULT_TYPE):
@@ -39,19 +38,20 @@ def main():
 
     india = pytz.timezone("Asia/Kolkata")
 
-# 9:00 AM
-app.job_queue.run_daily(
-    send_daily,
-    time=time(hour=9, minute=0, tzinfo=india),
-    name="daily_affirmation_9am"
-)
+    # 9:00 AM
+    app.job_queue.run_daily(
+        send_daily,
+        time=time(hour=9, minute=0, tzinfo=india),
+        name="daily_affirmation_9am"
+    )
 
-# 11:11 AM
-app.job_queue.run_daily(
-    send_daily,
-    time=time(hour=11, minute=11, tzinfo=india),
-    name="daily_affirmation_1111"
-)
+    # 11:11 AM
+    app.job_queue.run_daily(
+        send_daily,
+        time=time(hour=11, minute=11, tzinfo=india),
+        name="daily_affirmation_1111"
+    )
+
     print("Bot is running...")
     app.run_polling()
 
