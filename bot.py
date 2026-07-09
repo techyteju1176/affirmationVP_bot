@@ -54,7 +54,7 @@ def main():
     # 11:31 AM
     app.job_queue.run_daily(
         send_daily,
-        time=time(hour=11, minute=31, tzinfo=india),
+        time=time(hour=18, minute=31, tzinfo=india),
         name="daily_affirmation_1131",
     )
 
