@@ -37,6 +37,22 @@ async def send_daily(context: ContextTypes.DEFAULT_TYPE):
     )
 
 
+async def send_daily_first(context: ContextTypes.DEFAULT_TYPE):
+    print("✅ First affirmation job triggered!")
+    await context.bot.send_message(
+        chat_id=CHAT_ID,
+        text=AFFIRMATION,
+    )
+
+
+async def send_daily_second(context: ContextTypes.DEFAULT_TYPE):
+    print("✅ Second affirmation job triggered!")
+    await context.bot.send_message(
+        chat_id=CHAT_ID,
+        text=AFFIRMATION_2,
+    )
+
+
 async def reply_affirmation(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
         text = update.message.text.lower().strip()
@@ -56,9 +72,9 @@ def main():
 
     india = pytz.timezone("Asia/Kolkata")
 
-    # 9:00 AM
+    # 9:00 AM - first affirmation
     app.job_queue.run_daily(
-        send_daily,
+        send_daily_first,
         time=time(hour=9, minute=0, tzinfo=india),
         name="daily_affirmation_9am",
     )
@@ -70,11 +86,11 @@ def main():
         name="daily_affirmation_1131",
     )
 
-    # 5:31 PM
+    # 5:55 PM - second affirmation
     app.job_queue.run_daily(
-        send_daily,
+        send_daily_second,
         time=time(hour=17, minute=55, tzinfo=india),
-        name="daily_affirmation_1731",
+        name="daily_affirmation_1755",
     )
 
     print("Bot is running...")
