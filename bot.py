@@ -15,6 +15,12 @@ AFFIRMATION = (
     "even when I'm not feeling my best."
 )
 
+AFFIRMATION_2 = (
+    "✨ Every day, I become stronger, more confident, and more connected to my true self.\n"
+    "My voice, my feelings, and my dreams matter, and I allow them to shine with pride.\n"
+    "I trust my inner strength to guide me toward a healthy, peaceful, and loving life."
+)
+
 # Your Telegram group chat ID
 CHAT_ID = -1004420749116
 
@@ -25,6 +31,10 @@ async def send_daily(context: ContextTypes.DEFAULT_TYPE):
         chat_id=CHAT_ID,
         text=AFFIRMATION,
     )
+    await context.bot.send_message(
+        chat_id=CHAT_ID,
+        text=AFFIRMATION_2,
+    )
 
 
 async def reply_affirmation(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -33,6 +43,8 @@ async def reply_affirmation(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if text == "i am blessed":
             await update.message.reply_text(AFFIRMATION)
+        elif text == "i am strong":
+            await update.message.reply_text(AFFIRMATION_2)
 
 
 def main():
